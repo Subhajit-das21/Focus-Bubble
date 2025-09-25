@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Bubble - Enhanced</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background bubbles -->
+    <div class="background-bubbles" id="backgroundBubbles"></div>
+
+    <!-- Fullscreen toggle -->
+    <button class="fullscreen-btn" id="fullscreenBtn" title="Toggle Fullscreen">⛶</button>
+
+    <!-- Warning notification -->
+    <div class="warning-notification" id="warningNotification">
+        <h3>⚠️ Time's Almost Up!</h3>
+        <p>Only <span id="warningTime"></span> left to focus</p>
+    </div>
+
+    <div class="container">
+        <!-- Input Screen -->
+        <div class="input-screen" id="inputScreen">
+            <h1 class="title">🫧 Focus Bubble</h1>
+            
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    class="task-input" 
+                    id="taskInput"
+                    placeholder="What's your focus task today?"
+                    maxlength="100"
+                >
+            </div>
+
+            <div class="time-selector">
+                <div class="time-option active" data-minutes="25">25 min</div>
+                <div class="time-option" data-minutes="45">45 min</div>
+                <div class="time-option" data-minutes="60">60 min</div>
+                <div class="time-option" data-minutes="90">90 min</div>
+            </div>
+
+            <div class="custom-time">
+                <span>Custom:</span>
+                <input type="number" id="customMinutes" min="1" max="999" placeholder="30">
+                <span>minutes</span>
+            </div>
+
+            <button class="btn btn-primary" id="startBtn">Start Focus Session</button>
+        </div>
+
+        <!-- Timer Screen -->
+        <div class="timer-screen" id="timerScreen">
+            <div class="current-task" id="currentTask"></div>
+            
+            <div class="focus-bubble">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle cx="150" cy="150" r="140" id="progressCircle" 
+                            stroke-dasharray="879.646" stroke-dashoffset="879.646"/>
+                </svg>
+                <div class="bubble-outer">
+                    <div class="bubble-inner">
+                        <div class="timer-display" id="timerDisplay">25:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timer-controls">
+                <button class="btn btn-secondary" id="pauseBtn">⏸️ Pause</button>
+                <button class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+            </div>
+        </div>
+
+        <!-- Celebration Screen -->
+        <div class="celebration-screen" id="celebrationScreen">
+            <div class="celebration-emoji">🎉</div>
+            <div class="celebration-text">Fantastic Work!</div>
+            <div class="celebration-subtitle">You've completed your focus session</div>
+            <button class="btn btn-primary" id="newTaskBtn">Start New Session</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
